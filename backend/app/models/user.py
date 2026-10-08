@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from backend.app.database.database import Base
 
 
@@ -12,3 +13,15 @@ class User(Base):
     email = Column(String(255), unique=True, nullable=False)
 
     password = Column(String(255), nullable=False)
+    
+    resumes = relationship(
+    "Resume",
+    back_populates="user",
+    cascade="all, delete"
+)
+
+    jobs = relationship(
+    "Job",
+    back_populates="user",
+    cascade="all, delete-orphan"
+)

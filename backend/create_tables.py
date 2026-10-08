@@ -1,7 +1,10 @@
-from app.database.database import Base, engine
+from backend.app.database.database import Base, engine
 
 # Import all models
-from app.models.user import User
+from backend.app.models.user import User
+from backend.app.models.resume import Resume
+from app.models.resume import Resume
+from app.models.resume_analysis import ResumeAnalysis
 
 print("Creating tables...")
 
